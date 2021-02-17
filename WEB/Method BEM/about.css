@@ -1,0 +1,146 @@
+@charset "UTF-8";
+/*Обнуление*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.about__body {
+  max-width: 823px;
+  margin: 50px auto;
+  box-shadow: 0px 0px 1px 1px #868585;
+}
+.about__title {
+  margin-bottom: 30px;
+}
+.about__text {
+  max-width: 688px;
+  text-align: center;
+  margin: 0 auto;
+  color: #868585;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 25.89px;
+}
+.about__row {
+  display: flex;
+  margin: 15px -15px;
+}
+.about__column {
+  flex: 0 0 33.333%;
+  padding: 0 15px;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 8.95px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 30px;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50px;
+  height: 1px;
+  background-color: #000;
+  margin-left: -25px;
+}
+
+.item-about__icon {
+  margin: 0 auto;
+  display: flex;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.item-about__title {
+  text-align: center;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 3.52px;
+  margin-bottom: 35px;
+}
+.item-about__text {
+  text-align: center;
+  color: #868585;
+}

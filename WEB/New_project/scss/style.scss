@@ -1,0 +1,67 @@
+@import "_null";
+
+$color_body: rgb(211, 211, 243);
+
+%border{
+    border: 1px solid #000000;
+    box-shadow: 0 4px 1px rgba($color: #777, $alpha: 1.0);
+    border-radius: 5px;}
+%livebutton{
+    &:active{
+        color: #94388c;
+        position: relative;
+        top: 2px;
+        box-shadow: 0 2px 1px rgba($color: #777, $alpha: 0.5);}
+}
+
+
+@mixin font($f,$c){
+    font-weight: $f;
+    text-align: $c;}
+
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding: 10px;
+    background-color: $color_body;
+}
+.block{
+    font-size: 18px;
+    width: 0.7 * 100%;
+    margin: 0 auto;
+    padding: 10px;
+    box-shadow: 0 0 3px 2px rgba($color: #000000, $alpha: 0.5);
+}
+
+.block_item{
+    margin-bottom: 20px;
+    line-height: 1.3em;
+    & span{
+        font-style: italic;
+    }
+}
+
+.block_list li {
+    margin-bottom: 5px;
+    &:before{
+        content:'';
+        display: inline-block;
+        background: url(../img/check_icon.png) bottom no-repeat;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        position: relative;
+        top: 3px;
+    }
+    &:last-child{
+        margin-bottom: 20px;
+    }
+}
+
+.block_link{
+    display: block;
+    @extend %border;
+    @extend %livebutton;
+    @include font(700,center);
+    background-color: #387294;
+}
+

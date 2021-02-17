@@ -1,0 +1,52 @@
+// Null style
+@import "_null";
+
+// Variables
+$color_1: black;
+$color_2: rgb(87, 159, 172);
+
+// Templates
+.tpl {
+    border-bottom: dashed red 5px;
+    display: inline-block;
+}
+
+// Mixins
+@mixin font($f,$c) {
+    font-size: $f;
+    color: $c;
+}
+
+
+
+.block{
+    font-size: 18px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding: 30px;
+    margin: 0 auto;
+    width: 500 / 1280 * 100%;
+    background-color: $color_2;
+    border: 2px solid $color_1;
+    & > *:nth-child(n) {
+        margin-bottom: 10px;
+    }
+}
+
+    .link{
+        @extend .tpl;
+        &:hover{
+            color: green;
+        }
+        &:active{
+            text-shadow: 2px 2px 2px #000;
+        }
+    }
+
+    .block_text{
+        line-height: 1.2;
+        span{
+        @include font(40px, $color_1);
+        color: red;
+        }
+    }
+    

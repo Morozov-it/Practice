@@ -1,0 +1,100 @@
+body {
+    background: #e8e8e8 url(img/Ellipse_1_copy.png) 50% 215px no-repeat;
+}
+.wrapper {
+    max-width: 841px;
+    max-height: 1750px;
+    box-shadow: 0 15px 65px rgba(15, 16, 16, 0.15);
+    margin: 5% auto 5% auto;
+}
+.capture {
+    opacity: 0.6;
+    color: #273d46;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 168px 0px 0px 0px;
+    font-style: normal;
+    letter-spacing: 2.8px;
+    line-height: normal;
+    text-align: center;
+}
+.capture-text {
+    color: #273d46;
+    font-family: "Times New Roman PSMT";
+    font-size: 36px;
+    font-weight: 400;
+    text-align: center;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 50px;
+    padding: 30px 50px 75px 50px;
+}
+.picture {
+    width: 841px;
+    height: 561px;
+    box-shadow: 0 15px 65px rgba(15, 16, 16, 0.15);
+    background: white url(img/light-man_copy.jpg) center no-repeat;
+}
+.text {
+    opacity: 0.8;
+    color: #273d46;
+    font-family: "Times New Roman PSMT";
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 40px;
+    padding: 100px 40px 30px 40px;
+}
+.list {
+    padding: 60px 0 60px 40px;
+    /* Style for "Put on thi" width: 421px; height: 19px;*/
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    color: #273d46;
+    font-family: "Arial MT", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: left;
+    font-style: normal;
+    letter-spacing: normal;
+
+}
+.list li {
+    background: url(img/check_icon.png) left no-repeat;
+    padding: 0px 0px 0px 30px;
+}
+.list_2 {
+    color: #80b7b3;
+    font-style: italic;
+}
+.list_3 {
+    font-weight: bold;
+}
+.list_4 {
+    opacity: 0.3;
+    text-decoration: line-through;
+}
+.button {
+    background: url(img/Shape_2.png) 85% 50% no-repeat #80b7b3;
+    width: 199px;
+    height: 44px;
+    box-shadow: 0 6px 40px rgba(128, 183, 179, 0.54);
+    border-radius: 50px;
+    margin-left: 40px;
+    text-indent: 20px;    
+    line-height: 45px;
+    letter-spacing: 2.8px;
+}    
+.link {
+    color: #ffffff;
+    font-family: "Arial MT", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    text-transform: uppercase;
+}
