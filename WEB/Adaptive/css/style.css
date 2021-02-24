@@ -28,6 +28,8 @@ body{
 	padding: 0px 15px;
 }
 
+
+
 @media (max-width:1200px){
 	.container{
 		max-width: 970px;
