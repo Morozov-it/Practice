@@ -1,16 +1,10 @@
-@import "_null";
 
-@mixin flexbox() {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
 
 %flex-center{
     justify-content: center;
     align-items: center;}
-
 
 %livebutton{
     &:active{
@@ -22,25 +16,13 @@
 $page:#fff; //это цвет фона за кнопкой
 $text: #000; //это цвет надписи кнопки
 
-body {
-    background-color: $page;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-.wrapper {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    overflow: hidden;
-    @include flexbox();
-    @extend %flex-center;
-}
 
 .wave-btn {
     width: 280px;
     height: 60px;
-    @include flexbox();
+    display: flex;
     @extend %flex-center;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 5px 5px;
     transition: all 0.8s ease 0s;
     position: relative;
     overflow: hidden;
