@@ -11,7 +11,7 @@
 		justify-content: center;
 		height: 85px;
 	}
-	&__menu {}
+	// &__menu {}
 	&__logo {
 		position: absolute;
 		left: 50%;
@@ -24,8 +24,10 @@
 	}
 }
 .menu {
-	&__icon {}
-	&__body {}
+	&__icon {
+		display: none;
+	}
+	// &__body {}
 	&__list {
 		@include flexbox();
 		& li {
@@ -125,7 +127,7 @@
 		width:30px;
 		height: 18px;
 		cursor: pointer;
-		z-index: 5;
+		z-index: 3;
 		span{
 			@include anim(0.3s,0s);
 			top: 8px;

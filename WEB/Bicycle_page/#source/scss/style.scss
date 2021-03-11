@@ -6,7 +6,7 @@
 @mixin skew($num){-webkit-transform: skewX($num);-moz-transform: skewX($num);-ms-transform: skewX($num);-o-transform: skewX($num);transform: skewX($num);}
 @mixin cnt($h){display: flex;flex-direction: column;height: $h;text-align: center;align-items: stretch;justify-content: center;}
 @mixin tr($x,$y,$z){transform: translate3d($x, $y, $z);};
-@mixin flexbox() {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-size: 0;}
+@mixin flexbox() {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;}
 @mixin flexorder($val){-webkit-box-ordinal-group: $val;-moz-box-ordinal-group: $val;-ms-flex-order: $val;-webkit-order: $val;order: $val;}
 //</МИКСИНЫ>===============================================================================================
 
@@ -70,6 +70,7 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 .container{
 	max-width: 1130px;
 	padding: 0 15px;
+	margin: 0 auto;
 }
 //</ОСНОВНАЯ СЕТКА>===========================================================================================================
 
@@ -79,7 +80,7 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 @import "footer.scss";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
-//<ОСНОВНОЙ БЛОК>====================================================================================================
+//<ОСНОВНОЙ БЛОК>=================================================================================================
 .page {
 	position: absolute;
 	width: 100%;
@@ -100,11 +101,82 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 		left: 0;
 	}
 }
+// .content {}
 
 //====================================================================================================
-.content {
-
+.generation {
+	background-color: #f7f7f7;
+	padding: 120px 0;
+	@media (max-width:$md2 - 92.98px){
+		padding: 80px 0;
+	}
+	@media (max-width:$md3 - 167.98px){
+		padding: 30px 0;
+	}
+	// &__block {}
 }
+
+.block {
+	text-align: center;
+	&__icon {
+		margin-bottom: 30px;
+	}
+	&__title {
+		font-size: 18px;
+		line-height: 1.2;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		line-height: 24px;
+		color: #353738;
+		margin-bottom: 18px;
+	}
+	&__text {
+		font-size: 18px;
+		line-height: 34px;
+		color: #848789;
+	}
+	&__text-j {
+		text-align: justify;
+		font-size: 16px;
+		line-height: 30px;
+		&::after{
+			content: '';
+			width: 50px;
+			height: 1px;
+			background-color: rgba(53,55,56,0.2);
+			display: block;
+			margin: 35px auto 0px auto;
+		}
+	}
+}
+
+//====================================================================================================
+.brands {
+	&__row {
+		@include flexbox();
+	}
+	&__column {
+		flex: 0 1 33.333%;
+	}
+	&__column-big {
+		flex: 0 1 66.667%;
+	}
+	&__item {}
+	&__content {
+		padding: 70px 55px 65px 55px;
+		&::after{
+			content: '';
+			
+		}
+	}
+	&__image {}
+}
+.item {
+	&__logo {}
+	&__image {}
+}
+
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
 

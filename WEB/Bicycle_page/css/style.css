@@ -99,6 +99,7 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 1130px;
   padding: 0 15px;
+  margin: 0 auto;
 }
 
 .popup {
@@ -197,7 +198,6 @@ h1, h2, h3, h4, h5, h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -220,11 +220,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.menu__icon {
+  display: none;
+}
 .menu__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 0;
 }
 .menu__list li {
   padding: 0 37.5px;
@@ -330,7 +332,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 30px;
     height: 18px;
     cursor: pointer;
-    z-index: 5;
+    z-index: 3;
   }
   .icon-menu span {
     -webkit-transition: all 0.3s ease 0s;
@@ -421,11 +423,81 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
 }
 
+.generation {
+  background-color: #f7f7f7;
+  padding: 120px 0;
+}
+@media (max-width: 900px) {
+  .generation {
+    padding: 80px 0;
+  }
+}
+@media (max-width: 600px) {
+  .generation {
+    padding: 30px 0;
+  }
+}
+
+.block {
+  text-align: center;
+}
+.block__icon {
+  margin-bottom: 30px;
+}
+.block__title {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  line-height: 24px;
+  color: #353738;
+  margin-bottom: 18px;
+}
+.block__text {
+  font-size: 18px;
+  line-height: 34px;
+  color: #848789;
+}
+.block__text-j {
+  text-align: justify;
+  font-size: 16px;
+  line-height: 30px;
+}
+.block__text-j::after {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background-color: rgba(53, 55, 56, 0.2);
+  display: block;
+  margin: 35px auto 0px auto;
+}
+
+.brands__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.brands__column {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 33.333%;
+          flex: 0 1 33.333%;
+}
+.brands__column-big {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 66.667%;
+          flex: 0 1 66.667%;
+}
+.brands__content {
+  padding: 70px 55px 65px 55px;
+}
+.brands__content::after {
+  content: "";
+}
 .form-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 0;
   margin: 0px -15px;
 }
 
@@ -791,7 +863,6 @@ textarea.input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
