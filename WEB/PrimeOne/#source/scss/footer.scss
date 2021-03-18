@@ -1,0 +1,38 @@
+.footer {
+    &-body {
+        display: flex;
+        align-items: center;
+        padding: 40px 0;
+        @media (max-width:$md1+px){
+			padding: 20px 0;
+		}
+        @media (max-width:$md2+px){
+			padding: 10px 0;
+		}
+    }
+    &__column {
+        flex: 0 0 50%;
+        @media (max-width:$md2+px){
+			flex: 0 0 100%;
+		}
+    }
+    &__text {
+        font-size: 15px;
+        color: #4d4d4d;
+        @media (max-width:$md3+px){
+			font-size: 12px;
+		}
+    }
+    &__brand {}
+    &__link {
+        text-decoration: underline;
+    }
+    &__logo {
+        text-align: right;
+        @media (max-width:$md2+px){
+			display: none;
+		}
+    }
+}
+//====================================================================================================
+
