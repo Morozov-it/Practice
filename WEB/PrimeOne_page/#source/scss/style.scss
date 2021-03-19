@@ -74,6 +74,7 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 	width: 100%;
 	min-height: 100%;
 	overflow: hidden;
+	background-color: #ffffff !important;
 }
 //</ОБОЛОЧКА>===========================================================================================================
 
@@ -102,14 +103,8 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 //===================================================================================================================
 .content {
 	padding-top: 170px;
-	@media (max-width:$md1+px){
-		padding-top: 160px;
-	}
-	@media (max-width:$md2+px){
-		padding-top: 110px;
-	}
-	@media (max-width:$md3+px){
-		padding-top: 90px;
+	@media (max-width:$md+px){
+		padding-top: 10px;
 	}
 }
 

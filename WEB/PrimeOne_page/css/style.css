@@ -109,6 +109,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
+  background-color: #ffffff !important;
 }
 
 .container {
@@ -136,6 +137,11 @@ header {
   z-index: 2;
   padding: 10px 0 0 0;
   background-color: #fff;
+}
+@media (max-width: 1023px) {
+  header {
+    position: relative;
+  }
 }
 @media (max-width: 892px) {
   header {
@@ -451,19 +457,9 @@ header {
 .content {
   padding-top: 170px;
 }
-@media (max-width: 892px) {
+@media (max-width: 1023px) {
   .content {
-    padding-top: 160px;
-  }
-}
-@media (max-width: 767px) {
-  .content {
-    padding-top: 110px;
-  }
-}
-@media (max-width: 425px) {
-  .content {
-    padding-top: 90px;
+    padding-top: 10px;
   }
 }
 
