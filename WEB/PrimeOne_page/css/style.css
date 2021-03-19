@@ -44,7 +44,7 @@ html, body {
   min-width: 320px;
   position: relative;
   width: 100%;
-  color: #000;
+  color: #000 !important;
 }
 
 body {
@@ -55,6 +55,7 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  background-color: #ffffff !important;
 }
 body.lock {
   overflow: hidden;
@@ -491,7 +492,7 @@ header {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .private-body__text {
   font-size: 15px;
@@ -512,7 +513,7 @@ header {
   text-decoration: underline;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 @media (max-width: 892px) {
@@ -627,14 +628,14 @@ header {
   max-width: 195px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #000000;
+  color: #000000 !important;
   padding-right: 10px;
 }
 .products-body-item__text {
   font-size: 15px;
   line-height: 25px;
   font-weight: 400;
-  color: #000000;
+  color: #000000 !important;
   max-width: 195px;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -651,7 +652,7 @@ header {
   text-decoration: underline;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #000;
+  color: #000 !important;
   padding-top: 30px;
 }
 @media (max-width: 767px) {
@@ -709,7 +710,7 @@ header {
   font-size: 50px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 55px 60px 55px 0px;
 }
 @media (max-width: 1023px) {
@@ -878,7 +879,7 @@ header {
   display: inline-block;
   font-size: 15px;
   line-height: 27px;
-  color: #000;
+  color: #000 !important;
   padding: 0 10px 0 30px;
 }
 .contacts-social {
@@ -950,7 +951,7 @@ header {
   font-size: 25px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
@@ -982,14 +983,14 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0 34px;
-  color: #000;
+  color: #000 !important;
 }
 .btn--white {
-  background-color: #fff;
+  background-color: #fff !important;
 }
 .btn--black {
-  color: #fff;
-  background-color: #000;
+  color: #fff !important;
+  background-color: #000 !important;
 }
 .btn.fw {
   width: 100%;

@@ -47,7 +47,7 @@ $md3:425;
 :focus,:active{outline: none;}
 a:focus,a:active{outline: none;}
 aside,nav,footer,header,section{display: block;}
-html,body{height: 100%;margin: 0;padding: 0;min-width: $minwidth;position: relative;width: 100%;color: #000;}
+html,body{height: 100%;margin: 0;padding: 0;min-width: $minwidth;position: relative;width: 100%;color: #000 !important;}
 body{font-size: 100%;line-height: 1;font-size: 14px;font-family: $fontfamily;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
 	&.lock{
 		overflow: hidden;
@@ -57,6 +57,7 @@ body{font-size: 100%;line-height: 1;font-size: 14px;font-family: $fontfamily;-ms
 			overflow: hidden;
 		}
 	}
+	background-color: #ffffff !important;
 }
 input,button,textarea{font-family: $fontfamily;}
 input::-ms-clear{display: none;}
@@ -131,7 +132,7 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 		font-weight: 400;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
-		color: #ffffff;
+		color: #ffffff !important;
 	}
 	&__text {
 		font-size: 15px;
@@ -153,7 +154,7 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 		text-decoration: underline;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
-		color: #ffffff;
+		color: #ffffff !important;
 	}
 }
 @media (max-width:$md1+px){
@@ -237,14 +238,14 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 		max-width: 195px;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
-		color: #000000;
+		color: #000000 !important;
 		padding-right: 10px;
 	}
 	&__text {
 		font-size: 15px;
 		line-height: 25px;
 		font-weight: 400;
-		color: #000000;
+		color: #000000 !important;
 		max-width: 195px;
 		flex: 1 1 auto;
 		padding-right: 10px;
@@ -260,7 +261,7 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 		text-decoration: underline;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
-		color: #000;
+		color: #000 !important;
 		padding-top: 30px;
 	}
 	@media (max-width:$md2+px){
@@ -314,7 +315,7 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 			font-size: 50px;
 			text-transform: uppercase;
 			letter-spacing: 0.1em;
-			color: #ffffff;
+			color: #ffffff !important;
 			padding: 55px 60px 55px 0px;
 			@media (max-width:$md+px){
 				padding:50px 40px 50px 0px;
@@ -428,7 +429,7 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 			display: inline-block;
 			font-size: 15px;
 			line-height: 27px;
-			color: #000;
+			color: #000 !important;
 			padding:0 10px 0 30px;
 		}
 	}
@@ -473,7 +474,7 @@ h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
 			font-size: 25px;
 			text-transform: uppercase;
 			letter-spacing: 0.1em;
-			color: #ffffff;
+			color: #ffffff !important;
 			margin-bottom: 30px;
 			@media (max-width:$md2+px){
 				margin-bottom: 15px;

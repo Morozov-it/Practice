@@ -9,13 +9,13 @@
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	padding: 0 34px;
-	color: #000;
+	color: #000 !important;
 	&--white{
-		background-color: #fff;
+		background-color: #fff !important;
 	}
 	&--black{
-		color: #fff;
-		background-color: #000;
+		color: #fff !important;
+		background-color: #000 !important;
 	}
 	&:hover{}
 	&.fw{width: 100%;}
