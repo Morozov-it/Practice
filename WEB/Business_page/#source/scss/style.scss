@@ -1,0 +1,731 @@
+//<МИКСИНЫ>===========================================================================================
+@mixin rotate($deg) {
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	-webkit-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	transform: rotate($deg);
+}
+@mixin scale($num) {
+	-moz-transform: scale($num);
+	-ms-transform: scale($num);
+	-webkit-transform: scale($num);
+	-o-transform: scale($num);
+	transform: scale($num);
+}
+@mixin anim($time, $delay) {
+	-webkit-transition: all $time ease $delay;
+	-moz-transition: all $time ease $delay;
+	-ms-transition: all $time ease $delay;
+	-o-transition: all $time ease $delay;
+	transition: all $time ease $delay;
+}
+@mixin flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+//</МИКСИНЫ>==========================================================================================
+
+//<ШРИФТЫ>============================================================================================
+
+//<Подключаем шрифты>=================================================================================
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+//</Подключаем шрифты>================================================================================
+
+//<Иконочные шрифты>==================================================================================
+
+//</Иконочные шрифты>=================================================================================
+
+//<Шрифт по умолчанию>================================================================================
+$fontfamily: 'Montserrat', sans-serif;
+//</Шрифт по умолчанию>===============================================================================
+$fontfamily_1: 'PT Serif', serif;
+//</ШРИФТЫ>===========================================================================================
+
+//<ПЕРЕМЕННЫЕ>========================================================================================
+$minwidth: 320px;
+$mw: 1170;
+$md1: $mw + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>=======================================================================================
+
+//</ШАБЛОНЫ>==========================================================================================
+%text {
+	color: #646667;
+	font-family: $fontfamily;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 36px;
+}
+//</ШАБЛОНЫ>==========================================================================================
+
+//<ГОТОВЫЕ КЛАССЫ>====================================================================================
+.text {
+	color: #646667;
+	font-family: $fontfamily;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 36px;
+}
+
+.title {
+	color: #3c3f3d;
+	font-family: $fontfamily_1;
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 48px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	@media (max-width: $md3+px) {
+		font-size: 24px;
+	}
+	@media (max-width: $md4+px) {
+		font-size: 22px;
+	}
+}
+
+.ibg {
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+
+.gradient {
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 35%;
+		background: url(../img/mask.svg) center/ cover no-repeat;
+		@media (max-width: $md3+px) {
+			width: 50%;
+		}
+		@media (max-width: $md4+px) {
+			width: 60%;
+		}
+	}
+}
+
+.btn {
+	display: inline-block;
+	background: #007397;
+	color: #ffffff;
+	text-align: center;
+	font-family: $fontfamily;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 56px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	position: relative;
+	span{
+		position: relative;
+		z-index: 2;
+	}
+	&::after{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 0;
+		height: 100%;
+		background-color: #015068;
+		@include anim(0.3s,0s)
+	}
+	&:hover{
+		box-shadow: 0 0 2px 2px #007397;
+		&::after{
+			left: 0;
+			width: 100%;
+		}
+	}
+}
+
+.link{
+	@include anim(0.3s,0s);
+	&::after{
+		content: '';
+		display: block;
+		position: relative;
+		width: 0;
+		height: 1px;
+		left: 50%;
+		bottom: 0;
+		background-color: #007397;
+		@include anim(0.3s,0s);
+	}
+	&:hover{
+		color: #007397;
+		&::after{
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+.tab__item{
+	display: none;
+	&.active{
+		display: block;
+	}
+}
+.dark{
+	position: relative;
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: 5;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: rgba(255, 255, 255, 0.5);
+		backdrop-filter: blur(2px) saturate(100%) contrast(100%);
+	}
+}
+//</ГОТОВЫЕ КЛАССЫ>===================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>========================================================================
+@import "null.scss";
+body {
+	color: #000;
+	font-size: 14px;
+	&.lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>=======================================================================
+
+//<ОБОЛОЧКА>==========================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+//</ОБОЛОЧКА>=========================================================================================
+
+//<ОСНОВНАЯ СЕТКА>====================================================================================
+.container {
+	max-width: $mw + px;
+	margin: 0 auto;
+	width: 100%;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+//> ==================================================================================================
+
+//</ОСНОВНАЯ СЕТКА>===================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=====================================================
+@import "header.scss";
+@import "footer.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================
+
+//<ОСНОВНОЙ БЛОК>=====================================================================================
+.content {
+	margin-top: 100px;
+	@media (max-width: $md2+px) {
+		margin-top: 78px;
+	}
+	@media (max-width: $md3+px) {
+		margin-top: 68px;
+	}
+}
+.mainblock {
+	// &__body {}
+	&__top {
+		position: relative;
+		padding-bottom: 35%;
+	}
+	&__title {
+		position: absolute;
+		z-index: 2;
+		width: 65%;
+		height: 44%;
+		vertical-align: bottom;
+		bottom: 0;
+		right: 0;
+		text-shadow: 0px 3px 1px rgba(0,0,0,0.6);
+		color: #ffffff;
+		font-family: $fontfamily_1;
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 48px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	&__content {
+		text-align: center;
+		max-width: 970px;
+		margin: 0 auto;
+	}
+	&__text {
+		margin: 45px 0;
+	}
+	&__button {
+		width: 370px;
+	}
+
+	@media (max-width: $md1+px) {
+		&__title {
+			font-size: 26px;
+			line-height: 40px;
+		}
+	}
+	@media (max-width: $md2+px) {
+		&__title {
+			font-size: 20px;
+			line-height: 30px;
+		}
+		&__text {
+			font-size: 16px;
+			line-height: 26px;
+			margin: 35px 0;
+		}
+		&__button {
+			font-size: 14px;
+			line-height: 46px;
+			width: 310px;
+		}
+	}
+	@media (max-width: $md3+px) {
+		&__title {
+			text-align: center;
+			line-height: 26px;
+			width: 100%;
+			height: 100%;
+			padding: 15%;
+		}
+		&__top{
+			padding-bottom: 50%;
+		}
+		&__text {
+			line-height: 22px;
+			margin: 25px 0;
+		}
+		&__button {
+			font-size: 14px;
+			line-height: 36px;
+			width: 270px;
+			letter-spacing: 0px;
+		}
+	}
+	@media (max-width: $md4+px) {
+		&__title {
+			font-size: 18px;
+		}
+		&__top{
+			padding-bottom: 60%;
+		}
+		&__text {
+			line-height: 18px;
+			margin: 15px 0;
+		}
+		&__button {
+			font-size: 12px;
+			line-height: 32px;
+			width: 250px;
+		}
+	}
+}
+
+//====================================================================================================
+.investor {
+	margin-top: 100px;
+	// &__body {}
+	// &__title {}
+	&__text {
+		max-width: 670px;
+		margin: 40px 0 45px 0;
+	}
+	&__button {
+		margin-top: 45px;
+		width: 270px;
+	}
+	&-indicators {
+		&__list {
+			@include flexbox();
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		&__column{
+			flex: 0 0 33.333%;
+			@include flexbox();
+			align-items: center;
+			justify-content: space-between;
+			&-center{
+				justify-content: center;
+			}
+		}
+		&__link {
+			text-align: center;
+			span{
+				display: block;
+				&:first-child{
+					color: #007397;
+					font-family: $fontfamily_1;
+					font-size: 54px;
+					font-weight: 400;
+					line-height: 54px;
+					text-transform: uppercase;
+				}
+				&:last-child{
+					color: #aec3d4;
+					font-family: $fontfamily;
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 32px;
+				}
+			} 
+		}
+	}
+	@media (max-width: $md2+px) {
+		margin-top: 70px;
+		&__text {
+			font-size: 16px;
+			line-height: 26px;
+			margin: 30px 0 35px 0;
+		}
+		&__button {
+			font-size: 14px;
+			line-height: 46px;
+			width: 210px;
+			margin-top: 35px;
+		}
+		&-indicators {
+			&__link {
+				span{
+					&:first-child{
+						font-size: 32px;
+						line-height: 32px;
+					}
+					&:last-child{
+						font-size: 12px;
+						line-height: 24px;
+					}
+				} 
+			}
+		}
+	}
+	@media (max-width: $md3+px) {
+		margin-top: 50px;
+		&__text {
+			line-height: 22px;
+			margin: 15px 0 20px 0;
+		}
+		&__button {
+			font-size: 14px;
+			line-height: 36px;
+			width: 150px;
+			letter-spacing: 0px;
+			margin-top: 25px;
+		}
+		&-indicators {
+			&__column{
+				flex: 0 0 100%;
+			}
+			&__link {
+				span{
+					&:first-child{
+						font-size: 28px;
+						line-height: 28px;
+					}
+					&:last-child{
+						font-size: 12px;
+						line-height: 22px;
+					}
+				} 
+			}
+		}
+	}
+	@media (max-width: $md4+px) {
+		margin-top: 30px;
+		&__text {
+			line-height: 18px;
+			margin: 0 0 15px 0;
+		}
+		&__button {
+			font-size: 12px;
+			line-height: 32px;
+			margin-top: 15px;
+		}
+	}
+}
+
+//====================================================================================================
+.newsmedia {
+	margin-top: 100px;
+	&-header{
+		@include flexbox();
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	@media (max-width: $md1+px) {
+		margin-top: 70px;
+		&-header{
+			margin-bottom: 10px;
+		}
+	}
+	@media (max-width: $md2+px) {
+		margin-top: 50px;
+		&-header{
+			margin-bottom: 0px;
+		}
+	}
+	@media (max-width: $md4+px) {
+		margin-top: 30px;
+		&-header{
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+}
+.nav-newsmedia {
+	@include flexbox();
+	&__item {
+		color: #d3cfce;
+		font-family: $fontfamily;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 16px;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-left: 100px;
+		cursor: pointer;
+		&.active{
+			color: #007397;
+		}
+		@media (max-width: $md2+px) {
+			margin-left: 80px;
+		}
+		@media (max-width: $md3+px) {
+			margin-left: 30px;
+			font-size: 14px;
+		}
+		@media (max-width: $md4+px) {
+			margin: 10px 40px 0 0;
+			font-size: 12px;
+		}
+	}
+}
+
+.newsmedia {
+	// &__body{}
+	&__tab {
+		@include flexbox();
+		margin: 0 -15px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	&__column {
+		flex: 0 0 33.333%;
+		padding: 20px 15px;
+	}
+	@media (max-width: $md2+px) {
+		&__column {
+			flex: 0 0 50%;
+			padding: 20px 15px;
+		}
+	}
+	@media (max-width: $md3+px) {
+		&__column {
+			flex: 0 0 100%;
+			padding: 20px 15px;
+			@include flexbox();
+			justify-content: center;
+		}
+	}
+}
+
+.item {
+	@include flexbox();
+	flex-direction: column;
+	height: 100%;
+	align-items: flex-start;
+	&__text {
+		flex: 1 1 auto;
+		font-size: 16px;
+		line-height: 32px;
+		margin: 30px 0 35px 0;
+	}
+	&__link {
+		color: #007397;
+		font-family: $fontfamily;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 16px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		display: inline-block;
+	}
+	@media (max-width: $md2+px) {
+		&__text {
+			font-size: 14px;
+			line-height: 28px;
+			margin: 20px 0 20px 0;
+		}
+	}
+	@media (max-width: $md3+px) {
+		max-width: 360px;
+	}
+	@media (max-width: $md4+px) {
+		max-width: 300px;
+	}
+}
+.item-header {
+	position: relative;
+	height: 370px;
+	width: 100%;
+	&__title {
+		position: absolute;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		padding: 25px 50px 80px 30px;
+		a {
+			font-family: $fontfamily;
+			color: #ffffff;
+			font-weight: 700;
+			text-transform: uppercase;
+			display: inline-block;
+			&:hover{
+				text-decoration: underline;
+			}
+			&:first-child{
+				font-size: 12px;
+				line-height: 16px;
+				letter-spacing: 0.75px;
+				margin-bottom: 170px;
+			}
+			&:last-child{
+				font-size: 24px;
+				line-height: 32px;
+				letter-spacing: 1px;
+			}
+		}
+	}
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		&.gradient {
+			&::after {
+				width: 100%;
+			}
+		}
+	}
+	@media (max-width: $md1+px) {
+		&__image {
+			&.gradient {
+				&::after {
+					height: 80%;
+				}
+			}
+		}
+		&__title {
+			a {
+				&:first-child{
+					margin-bottom: 150px;
+				}
+				&:last-child{
+					font-size: 22px;
+					line-height: 30px;
+					letter-spacing: 1px;
+				}
+			}
+		}
+	}
+	@media (max-width: $md2+px) {
+		&__image {
+			&.gradient {
+				&::after {
+					height: 97%;
+				}
+			}
+		}
+	}
+	@media (max-width: $md4+px) {
+		height: 300px;
+		&__title {
+			a {
+				&:first-child{
+					margin-bottom: 80px;
+				}
+			}
+		}
+	}
+}
+
+//====================================================================================================
+.country {
+	margin-top: 80px;
+	&__title{
+		line-height: 28px;
+	}
+	&__map {
+		margin-top: 40px;
+		height: 448px;
+	}
+	@media (max-width: $md1+px) {
+		margin-top: 60px;
+	}
+	@media (max-width: $md2+px) {
+		margin-top: 40px;
+		&__map {
+			margin-top: 30px;
+			height: 400px;
+		}
+	}
+	@media (max-width: $md3+px) {
+		margin-top: 20px;
+		&__map {
+			margin-top: 20px;
+			// height: 350px;
+		}
+	}
+	@media (max-width: $md4+px) {
+		margin-top: 10px;
+		&__map {
+			margin-top: 10px;
+		}
+	}
+}
+//====================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================
