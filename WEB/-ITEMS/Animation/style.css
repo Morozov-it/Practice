@@ -1,0 +1,45 @@
+.wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #444;
+}
+.content {
+    padding: 50px;
+}
+
+.content__circle {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    left: 0;
+}
+
+.content__circle {
+    animation-name: white-circle; /*это включение Keyframes*/
+    animation-duration: 2s; /*любое время анимации*/
+    animation-timing-function: linear; /*это тип анимации*/
+    animation-iteration-count: 3; /*это количество повторов 'infinite - бесконечно'*/
+    animation-direction: alternate-reverse; /*это пинг-понг*/
+    animation-delay: 0.5s; /*это задержка перед анимацией, -1 это запуск с середины цикла*/
+    animation-fill-mode: forwards; /*переход на конечные свойства и остановка*/
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+.content:hover .content__circle{
+    animation-play-state: paused; /*остановка анимации при наведении 'none'- это полный сброс*/
+}
+
+@keyframes white-circle{ /*любое название анимации*/
+    0%{                 /*это изначальные свойства*/
+        left: 0;
+    } 
+    50%{
+        border-radius: 0%; /*это промежуточные свойства*/
+    }
+    100%{               /*это конечные свойства*/
+        left: 500px;
+    } 
+}
