@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	$('.icon-menu').click(function(event) {
 		$('.menu__icon,.menu__body').toggleClass('active');
@@ -5,7 +6,6 @@ $(document).ready(function() {
 	});
 });
 
-// =======================================================================
 function ibg(){
 	$.each($('.ibg'), function(index, val) {
 		if($(this).find('img').length>0){
@@ -28,4 +28,3 @@ ibg();
 // }
 // ibg();
 
-// =======================================================================

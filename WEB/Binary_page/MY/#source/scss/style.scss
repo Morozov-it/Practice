@@ -5,12 +5,12 @@
 //<ШРИФТЫ>==============================================================================================
 
 //<Подключаем шрифты>===================================================================================
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 //</Подключаем шрифты>==================================================================================
 
 
 //<Шрифт по умолчанию>==================================================================================
-$fontfamily: "";
+$fontfamily: 'Lato', sans-serif;
 //</Шрифт по умолчанию>=================================================================================
 
 //</ШРИФТЫ>=============================================================================================
@@ -31,6 +31,23 @@ $md4: 479.98;
 	top: 0;
 	left: 0;
 }
+
+.btn {
+	display: inline-block;
+	@include adaptiv-font(16, 12);
+	@include adaptiv-value("line-height", 47, 30, 0);
+	@include adaptiv-value("width", 182, 150, 0);
+	letter-spacing: 0.06em;
+	&-white{
+		color: #fff;
+		border: 1px solid #fff;
+	}
+	&-black{
+		color: #000;
+		border: 1px solid #000;
+	}
+}
+
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>==========================================================================
 @import "null.scss";
 body {
@@ -45,8 +62,10 @@ body {
 //<ОБОЛОЧКА>============================================================================================
 .wrapper {
 	width: 100%;
-	min-height: 100%;
+	min-height: 100vh;
 	overflow: hidden;
+	@include flexbox();
+	flex-direction: column;
 }
 //</ОБОЛОЧКА>===========================================================================================
 
@@ -55,6 +74,7 @@ body {
 	max-width: $mw + px;
 	margin: 0 auto;
 	width: 100%;
+	height: 100%;
 	@media (max-width: $md1+px) {
 		max-width: 970px;
 	}
@@ -67,8 +87,91 @@ body {
 	}
 }
 //=======================================================================================================
+.mainblock {
+	min-height: 100vh;
+	position: relative;
+	&__content {
+		position: relative;
+		z-index: 1;
+		min-height: 100vh;
+	}
+	&__body {
+		min-height: 100vh;
+		@include adaptiv-padding(160,40, 0,0, 150,50, 0,0);
+		@include flexbox();
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+	}
+	&__logo {
+		img{
+			display: inline-block;
+			@include adaptiv-value("max-width", 195, 150, 0);
+		}
+		@include adaptiv-margin(0,0, 0,0, 150,50, 0,0);
+	}
+	&__text {
+		flex: 1 1 auto;
+		@include adaptiv-font(34, 24);
+		@include adaptiv-value("line-height", 40, 30, 0);
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.16em;
+		color: #fff;
+		span{
+			display: block;
+			&:last-child{
+				@include adaptiv-font(26, 16);
+				font-weight: 400;
+				text-transform: none;
+				@include adaptiv-margin(0,0, 0,0, 45,20, 0,0);
+			}
+		}
+		&::after{
+			content: '';
+			display: inline-block;
+			width: 105px;
+			height: 2px;
+			background-color: #fff;
+		}
+	}
+	&__button {
+		@include adaptiv-margin(0,0, 0,0, 70,20, 0,0);
+	}
+	&__arrow {
+		display: inline-block;
+	}
+	&__image {
+		@extend %absolute;
+	}
+}
 
 //=======================================================================================================
+.about {
+	&__content {}
+	&__header {}
+	&__body {}
+	&__title {}
+	&__text {}
+	&__row {}
+	&__column {}
+	&__item {}
+}
+
+.header {
+	&__menu {}
+	&__list {}
+	&__link {}
+}
+.title {
+}
+.text {
+}
+.item {
+	&__image {}
+	&__title {}
+	&__text {}
+}
 
 //=======================================================================================================
 
