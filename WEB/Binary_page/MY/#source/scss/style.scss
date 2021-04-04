@@ -7,8 +7,13 @@
 //<Подключаем шрифты>===================================================================================
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 //</Подключаем шрифты>==================================================================================
-
-
+@font-face {
+	font-family: 'MyriadPro', sans-serif;
+	src: url('fonts/MyriadPro-Regular.eot');
+	src: local('☺'), url('fonts/MyriadPro-Regular.woff') format('woff'), url('fonts/MyriadPro-Regular.ttf') format('truetype'), url('fonts/MyriadPro-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 //<Шрифт по умолчанию>==================================================================================
 $fontfamily: 'Lato', sans-serif;
 //</Шрифт по умолчанию>=================================================================================
@@ -29,8 +34,13 @@ $md4: 479.98;
 	width: 100%;
 	height: 100%;
 	top: 0;
-	left: 0;
-}
+	left: 0;}
+%fixed{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;}
 
 .btn {
 	display: inline-block;
@@ -41,11 +51,57 @@ $md4: 479.98;
 	&-white{
 		color: #fff;
 		border: 1px solid #fff;
+		&:hover{
+		box-shadow: 0px 0px 3px 1px #fff;
+		transition: all 1s ease 0s; 
+		}
 	}
 	&-black{
 		color: #000;
 		border: 1px solid #000;
+		&:hover{
+			box-shadow: 0px 0px 3px 1px #000;
+			transition: all 1s ease 0s; 
+		}
 	}
+}
+
+.input {
+	display: block;
+	width: 100%;
+	background-color: #f8f7f7;
+	border-top: 1px solid #000;
+	padding: 5px;
+}
+
+.tab__item{
+	display: none;
+	&.active{
+		display: block;
+	}
+}
+
+.title {
+	@include adaptiv-font(34, 24);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	span{
+		display: block;
+	}
+	&::after{
+		content: '';
+		display: inline-block;
+		width: 81px;
+		height: 1px;
+		background-color: #000;
+	}
+}
+.text {
+	@include adaptiv-value("font-size", 14, 2, 2);
+	@include adaptiv-value("line-height", 25, 18, 0);
+	font-weight: 300;
+	color: #868585;
 }
 
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>==========================================================================
@@ -64,7 +120,7 @@ body {
 	width: 100%;
 	min-height: 100vh;
 	overflow: hidden;
-	@include flexbox();
+	@include flexbox;
 	flex-direction: column;
 }
 //</ОБОЛОЧКА>===========================================================================================
@@ -98,7 +154,7 @@ body {
 	&__body {
 		min-height: 100vh;
 		@include adaptiv-padding(160,40, 0,0, 150,50, 0,0);
-		@include flexbox();
+		@include flexbox;
 		align-items: center;
 		flex-direction: column;
 		text-align: center;
@@ -136,52 +192,342 @@ body {
 		}
 	}
 	&__button {
-		@include adaptiv-margin(0,0, 0,0, 70,20, 0,0);
+		@include adaptiv-margin(40,20, 0,0, 70,20, 0,0);
 	}
 	&__arrow {
 		display: inline-block;
+		position: relative;
+		animation: arrow 2s ease infinite;
 	}
 	&__image {
-		@extend %absolute;
+		@extend %fixed;
 	}
+}
+@keyframes arrow{ 
+    0%{top: 0;} 
+    50%{top: 10px;}
+    100%{top: 0;} 
+}
+@-webkit-keyframes arrow{ 
+    0%{top: 0;} 
+    50%{top: 10px;}
+    100%{top: 0;} 
+}
+@-moz-keyframes arrow{ 
+    0%{top: 0;} 
+    50%{top: 10px;}
+    100%{top: 0;} 
+}
+@-o-keyframes arrow{ 
+    0%{top: 0;} 
+    50%{top: 20px;}
+    100%{top: 0;} 
 }
 
 //=======================================================================================================
+.content{
+	background-color: #fff;
+	position: relative;
+	z-index: 2;
+}
+//=======================================================================================================
 .about {
-	&__content {}
-	&__header {}
-	&__body {}
-	&__title {}
-	&__text {}
-	&__row {}
-	&__column {}
-	&__item {}
+	// &__content {}
+	&__header {
+		border: 1px solid #f3f3f3;
+	}
+	&__body {
+		@include adaptiv-padding(40,15, 0,0, 40,15, 0,0);
+		text-align: center;
+	}
+	&__title {
+		@include adaptiv-padding(80,40, 0,0, 0,0, 0,0);
+	}
+	&__text {
+		margin: 0 auto;
+		max-width: 690px;
+		@include adaptiv-value("margin-top", 35, 15, 0);
+	}
+	&__row {
+		@include adaptiv-padding(40,10, 0,0, 40,10, 0,0);
+		@include flexboxinline;
+		flex-wrap: wrap;
+		margin: 0 -15px;
+	}
+	&__column {
+		flex: 0 1 33.333%;
+		@include adaptiv-padding(20,10, 15,10, 20,10, 15,10);
+	}
+	&__item {
+		max-width: 260px;
+		height: 100%;
+	}
+	&__map {
+		max-width: 825px;
+		@include adaptiv-value("height", 340, 300, 0);
+		margin: 0 auto;
+		@include adaptiv-value("margin-top", 35, 15, 0);
+	}
+	@media (max-width: $md3+0px) {
+		&__column {
+			flex: 0 1 100%;
+		}
+		&__item {
+			max-width: none;
+		}
+	}
 }
 
 .header {
-	&__menu {}
-	&__list {}
-	&__link {}
+	&__menu {
+		@include flexbox;
+		@include flexcnt;
+	}
+	&__item {
+		@include adaptiv-font(15, 12);
+		line-height: 1.2;
+		font-weight: 400;
+		color: #3c3c3c;
+		text-transform: uppercase;
+		cursor: pointer;
+		@include adaptiv-margin(20,10, 20,10, 20,10, 20,10);
+		&.active{
+			font-weight: 700;
+			color: #ada074;
+		}
+	}
 }
-.title {
-}
-.text {
-}
+
 .item {
-	&__image {}
-	&__title {}
-	&__text {}
+	@include flexbox;
+	flex-direction: column;
+	align-items: center;
+	&__image {
+		display: inline-block;
+		border: 1px solid #f2f2f2;
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		img{
+			position: relative;
+			top: 25px;
+			left: 0;
+		}
+	}
+	&__title {
+		@include adaptiv-font(22, 18);
+		line-height: 1.2;
+		letter-spacing: 0.16em;
+		@include adaptiv-margin(35,15, 0,0, 35,15, 0,0);
+	}
+	&__text {
+		flex: 1 1 auto;
+	}
 }
 
 //=======================================================================================================
+.portfolio {
+	background-color: #f3f3f3;
+	&__body {
+		text-align: center;
+		@include adaptiv-padding(100,40, 0,0, 60,30, 0,0);
+	}
+	// &__title {}
+	&__filter {
+		@include adaptiv-margin(50,20, 0,0, 50,20, 0,0);
+	}
+	&__items {
+		@include flexbox;
+		flex-wrap: wrap;
+		margin: 0 -12.5px;
+		@include adaptiv-padding(52.5,12.5, 0,0, 0,0, 0,0);
+	}
+	&__column {
+		flex: 0 1 50%;
+		padding: 7.5px 12.5px 7.5px  12.5px;
+	}
+	&__item {
+		@include adaptiv-value("min-height", 365, 300, 0);
+		position: relative;
+		display: block;
+		img{
+			max-width: 100%;
+			object-fit: cover;
+			@extend %absolute;
+		}
+	}
+	&__button{
+		@include adaptiv-margin(50,20, 0,0, 0,0, 0,0);
+	}
+	@media (max-width: $md3+0px) {
+		&__column {
+			flex: 0 1 100%;
+		}
+	}
+}
+.filter {
+	&__list {
+		@include flexbox;
+		@include flexcnt;
+	}
+	&__item {
+		@include adaptiv-font(15, 12);
+		line-height: 1.2;
+		font-weight: 400;
+		color: #3c3c3c;
+		text-transform: uppercase;
+		cursor: pointer;
+		@include adaptiv-margin(20,10, 20,10, 20,10, 20,10);
+		&.active{
+			font-weight: 700;
+			color: #ada074;
+		}
+	}
+}
 
 //=======================================================================================================
+.partners {
+	&__body {
+		text-align: center;
+		@include adaptiv-padding(90,30, 0,0, 90,30, 0,0);
+	}
+	&__title {
+		@include adaptiv-font(30, 22);
+		font-weight: 300;
+		letter-spacing: 0.06em;
+		color: #fff;
+	}
+	&__row {
+		@include flexbox;
+		@include flexcnt;
+		flex-wrap: wrap;
+		@include adaptiv-padding(90,30, 0,0, 0,0, 0,0);
+	}
+	&__column {
+		@include adaptiv-padding(0,0, 55,15, 10,10, 55,15);
+	}
+}
+//=======================================================================================================
+.contacts {
+	&__body {
+		text-align: center;
+		@include adaptiv-padding(120,40, 0,0, 90,30, 0,0);
+	}
+	// &__title {}
+	&__row {
+		@include flexbox;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0 -15px;
+	}
+	&__column {
+		@include adaptiv-padding(100,30, 15,15, 0,0, 15,15);
+		flex: 0 1 50%;
+		@media (max-width: $md4+px) {
+			flex: 0 1 100%;
+		}
+	}
+	&__form {
+		@include flexbox;
+		justify-content: flex-end;
+		@media (max-width: $md4+px) {
+			justify-content: center;
+		}
+	}
+}
 
+.form-contacts {
+	@include flexbox;
+	flex-direction: column;
+	&__row {
+		@include flexbox;
+		justify-content: flex-end;
+		margin: 0 -30px;
+		flex-wrap: wrap;
+	}
+	&__column {
+		flex: 0 1 50%;
+		padding: 0 30px;
+		@media (max-width: $md3+px) {
+			flex: 0 1 100%;
+			margin-bottom: 10px;
+		}
+	}
+	&__input {
+		text-align: left;
+		input{
+			height: 35px;
+		}
+	}
+	&__label {
+		display: block;
+		font-size: 14px;
+		line-height: 1.2;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		@include adaptiv-margin(5,5, 0,0, 20,5, 0,0);
+	}
+	&__text {
+		@include adaptiv-margin(50,15, 0,0, 40,10, 0,0);
+		textarea{ 
+			height: 118px;	
+		}
+	}
+	&__button {
+		text-align: right;
+	}
+	&-btn{
+		@media (max-width: $md4+px) {
+			display: block;
+			width: 100%;
+		}
+	}
+	@media (max-width: $md4+px) {
+		flex: 1 1 100%;
+	}
+}
+
+.contacts-info {
+	text-align: left;
+	font-size: 14px;
+	@include adaptiv-value("line-height", 26, 18, 0);
+	max-width: 255px;
+	&__text {
+		font-weight: 300;
+	}
+	&__name {
+		font-weight: 700;
+		@include adaptiv-margin(40,10, 0,0, 20,20, 0,0);
+	}
+	// &__social {}
+	&__email {
+		margin: 20px 0px;
+		a{
+			color: #000;
+			font-weight: 700;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+	@media (max-width: $md4+px) {
+		text-align: center;
+		max-width: 100%;
+	}
+}
+.social {
+	&__item {
+		margin-right: 10px;
+	}
+}
 
 //</ОСНОВНАЯ СЕТКА>======================================================================================
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>=================================================
 @import "ui.scss";
+@import "forms.scss";
+@import "baguetteBox.scss";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>================================================
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>========================================================

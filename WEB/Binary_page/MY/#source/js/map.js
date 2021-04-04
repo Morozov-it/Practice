@@ -18,10 +18,7 @@ function map(n){
 		//pixelOffset: new google.maps.Size(-230,250)
 	});
 	var locations = [
-		[new google.maps.LatLng(53.819055,27.8813694)],
-		[new google.maps.LatLng(53.700055,27.5513694)],
-		[new google.maps.LatLng(53.809055,27.5813694)],
-		[new google.maps.LatLng(53.859055,27.5013694)],
+		[new google.maps.LatLng(51.808478, 36.175040)],
 	]
 	var options = {
 		zoom: 10,
@@ -80,44 +77,43 @@ if($("#map").length>0){
 }
 
 
-/* YA
-function map(n){
-	ymaps.ready(init);
-	function init(){ 
-		// Создание карты.
-		var myMap = new ymaps.Map("map", {
-			// Координаты центра карты.
-			// Порядок по умолчанию: «широта, долгота».
-			// Чтобы не определять координаты центра карты вручную,
-			// воспользуйтесь инструментом Определение координат.
-			controls: [],
-			center: [43.585525,39.723062],
-			// Уровень масштабирования. Допустимые значения:
-			// от 0 (весь мир) до 19.
-			zoom: 10
-		});
+// YA
+// function map(n){
+// 	ymaps.ready(init);
+// 	function init(){ 
+// 		// Создание карты.
+// 		var myMap = new ymaps.Map("map", {
+// 			// Координаты центра карты.
+// 			// Порядок по умолчанию: «широта, долгота».
+// 			// Чтобы не определять координаты центра карты вручную,
+// 			// воспользуйтесь инструментом Определение координат.
+// 			controls: [],
+// 			center: [43.585525,39.723062],
+// 			// Уровень масштабирования. Допустимые значения:
+// 			// от 0 (весь мир) до 19.
+// 			zoom: 10
+// 		});
 		
-		myPlacemar = new ymaps.Placemark([43.585525,39.723062],{
-			id:'2'
-		},{
-			// Опции.
-			hasBalloon:false,
-			hideIconOnBalloonOpen:false,
-			// Необходимо указать данный тип макета.
-			iconLayout: 'default#imageWithContent',
-			// Своё изображение иконки метки.
-			iconImageHref: 'img/icons/map.svg',
-			// Размеры метки.
-			iconImageSize: [40, 40],
-			// Смещение левого верхнего угла иконки относительно
-			// её "ножки" (точки привязки).
-			iconImageOffset: [-20, -20],
-			// Смещение слоя с содержимым относительно слоя с картинкой.
-			iconContentOffset: [0,0],
-		});
-		myMap.geoObjects.add(myPlacemar);
+// 		myPlacemar = new ymaps.Placemark([43.585525,39.723062],{
+// 			id:'2'
+// 		},{
+// 			// Опции.
+// 			hasBalloon:false,
+// 			hideIconOnBalloonOpen:false,
+// 			// Необходимо указать данный тип макета.
+// 			iconLayout: 'default#imageWithContent',
+// 			// Своё изображение иконки метки.
+// 			iconImageHref: 'img/icons/map.svg',
+// 			// Размеры метки.
+// 			iconImageSize: [40, 40],
+// 			// Смещение левого верхнего угла иконки относительно
+// 			// её "ножки" (точки привязки).
+// 			iconImageOffset: [-20, -20],
+// 			// Смещение слоя с содержимым относительно слоя с картинкой.
+// 			iconContentOffset: [0,0],
+// 		});
+// 		myMap.geoObjects.add(myPlacemar);
 
-		myMap.behaviors.disable('scrollZoom');
-	}
-}
-*/
+// 		myMap.behaviors.disable('scrollZoom');
+// 	}
+// }

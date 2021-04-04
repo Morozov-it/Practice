@@ -13,7 +13,22 @@ function ibg(){
 	});
 }
 ibg();
-	
+
+
+$('body').on('click', '.tab__navitem', function (event) {
+	var eq = $(this).index();
+	if ($(this).hasClass('parent')) {
+		var eq = $(this).parent().index();
+	}
+	if (!$(this).hasClass('active')) {
+		$(this).closest('.tabs').find('.tab__navitem').removeClass('active');
+		$(this).addClass('active');
+		$(this).closest('.tabs').find('.tab__item').removeClass('active').eq(eq).addClass('active');
+		if ($(this).closest('.tabs').find('.slick-slider').length > 0) {
+			$(this).closest('.tabs').find('.slick-slider').slick('setPosition');
+		}
+	}
+});
 
 // function ibg() {
 // 	if (isIE()) {
@@ -27,3 +42,43 @@ ibg();
 // }
 // ibg();
 
+
+//Подключение фильтра
+$('.filter__item').click(function(event) {
+	var i=$(this).data('filter');
+if (i==1) {
+	$('.portfolio__column').show();
+}else{
+	$('.portfolio__column').hide();
+	$('.portfolio__column.f_'+i).show();
+}
+$('.filter__item').removeClass('active');
+$(this).addClass('active');
+
+return false;
+});
+
+// //ZOOM
+if($('.gallery').length>0){
+	baguetteBox.run('.gallery', {
+		// Custom options
+	});
+}
+
+//Переход на класс по странице
+$('.goto').click(function() {
+	var el=$(this).attr('href').replace('#','');
+	var offset=0;
+$('body,html').animate({scrollTop:$('.'+el).offset().top+offset},700, function() {});
+
+if($('.header-menu').hasClass('active')){
+	$('.header-menu,.header-menu__icon').removeClass('active');
+	$('body').removeClass('lock');
+}
+return false;
+});
+//Параллакс фона при скролле экрана
+$(window).scroll(function(event) {
+	var s=0-$(this).scrollTop()/3;
+$('.mainblock__image').css('transform','translate3d(0, '+s+'px, 0)');
+});

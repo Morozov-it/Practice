@@ -16,6 +16,7 @@ function ibg(){
 ibg();
 	
 
+
 // function ibg() {
 // 	if (isIE()) {
 // 		let ibg = document.querySelectorAll(".ibg");
@@ -27,5 +28,27 @@ ibg();
 // 	}
 // }
 // ibg();
+
+// =======================================================================
+
+// //ZOOM
+if($('.gallery').length>0){
+	baguetteBox.run('.gallery', {
+		// Custom options
+	});
+}
+
+//Переход на класс по странице
+$('.goto').click(function() {
+	var el=$(this).attr('href').replace('#','');
+	var offset=0;
+$('body,html').animate({scrollTop:$('.'+el).offset().top+offset},700, function() {});
+
+if($('.header-menu').hasClass('active')){
+	$('.header-menu,.header-menu__icon').removeClass('active');
+	$('body').removeClass('lock');
+}
+return false;
+});
 
 // =======================================================================

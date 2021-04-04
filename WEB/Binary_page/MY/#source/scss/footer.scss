@@ -1,4 +1,31 @@
 //====================================================================================================
+.footer {
+    background-color: #3c3c3c;
+    position: relative;
+    z-index: 2;
+    &__row {
+        text-align: center;
+        @include adaptiv-padding(50,20, 0,0, 50,20, 0,0);
+    }
+    // &__logo {}
+    &__list {
+        @include adaptiv-margin(30,10, 0,0, 30,10, 0,0);
+    }
+    &__link {
+        display: inline-block;
+        @include adaptiv-value("font-size", 14, 2, 2);
+        color: #a4a4a4;
+        margin: 10px;
+        &:hover{
+            color: #fff;
+        }
+    }
+    &__rights {
+        font-family: 'MyriadPro', sans-serif;
+        @include adaptiv-value("font-size", 14, 2, 2);
+        color: #6c6c6c;
+    }
+}
 
 //====================================================================================================
 
