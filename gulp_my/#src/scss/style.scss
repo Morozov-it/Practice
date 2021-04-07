@@ -1,0 +1,19 @@
+body{
+    font-size: 20px;
+    h1{color: red;}
+    display: flex;
+}
+
+p {
+    font-size: 16px;
+    @media (max-width:767px) {
+        font-size: 12px;
+    }
+}
+
+span {
+    color: royalblue;
+    @media (max-width:767px) {
+        color: salmon;
+    }
+}
