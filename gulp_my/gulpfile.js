@@ -1,6 +1,7 @@
 
-let project_folder = "dist"; //это переменная конечной папки
+let project_folder = require("path").basename(__dirname); //это переменная конечной папки
 let source_folder = "#src"; //это переменная исходной папки
+let fs = require('fs');
 
 let path = {
     build: {   //это пути вывода файлов
@@ -40,7 +41,10 @@ let { src, dest } = require('gulp'), //это переменные для пла
     imagemin = require("gulp-imagemin"),
     webp = require("gulp-webp"),
     webphtml = require("gulp-webp-html"),
-    webpcss = require("gulp-webpcss");
+    webpcss = require("gulp-webpcss"),
+    ttf2woff = require("gulp-ttf2woff"),
+    ttf2woff2 = require("gulp-ttf2woff2"),
+    fonter = require("gulp-fonter");
     
 function browserSync(params) {
     browsersync.init({
@@ -125,6 +129,45 @@ function images() { //это функция копирования из исхо
         .pipe(browsersync.stream())
 }
 
+function fonts(params) {
+    src(path.src.fonts)
+        .pipe(ttf2woff())
+        .pipe(dest(path.build.fonts));
+    return src(path.src.fonts)
+        .pipe(ttf2woff2())
+        .pipe(dest(path.build.fonts));
+};
+
+//вызов этой функции в терминале командой gulp otf2ttf
+gulp.task('otf2ttf', function () { 
+    return gulp.src([source_folder + '/fonts/*.otf'])
+        .pipe(fonter({
+            formats: ['ttf']
+        }))
+        .pipe(dest(source_folder + '/fonts/'))
+})
+
+function fontsStyle(params) {
+    let file_content = fs.readFileSync(source_folder + '/scss/fonts.scss');
+    if (file_content == '') {
+        fs.writeFile(source_folder + '/scss/fonts.scss', '', cb);
+        return fs.readdir(path.build.fonts, function (err, items) {
+            if (items) {
+                let c_fontname;
+                for (var i = 0; i < items.length; i++) {
+                    let fontname = items[i].split('.');
+                    fontname = fontname[0];
+                    if (c_fontname != fontname) {
+                    fs.appendFile(source_folder + '/scss/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
+                    }
+                    c_fontname = fontname;
+                }
+            }
+        })
+    }
+}
+function cb(){}
+
 function watchFiles(params) {
     gulp.watch([path.watch.html], html); //это слежка за html файлами 
     gulp.watch([path.watch.css], css); //это слежка за css файлами
@@ -136,11 +179,12 @@ function clean(params) {
     return del(path.clean); //это удаление прочих файлов кроме index.html
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images));
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts), fontsStyle);
 let watch = gulp.parallel(build, watchFiles, browserSync);
 //это сценарий выполнения
 
-
+exports.fontsStyle = fontsStyle;
+exports.fonts = fonts;
 exports.images = images;
 exports.js = js;
 exports.css = css;
