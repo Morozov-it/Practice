@@ -4,11 +4,69 @@ canvas.style.cssText = `
     border: 1px solid #000;
 `;
 var ctx = canvas.getContext('2d');
+var width = canvas.width;
+var height = canvas.height;
+var colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
 
+var Ball = function () {
+    this.x = width / 2;
+    this.y = height / 2;
+    this.z = color();
+    this.xSpeed = Math.random() * 10 - 5;
+    this.ySpeed = Math.random() * 10 - 5;
+};
 
+function circle(x, y, radius, fillCircle, z) {
+    ctx.fillStyle = z;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+    if (fillCircle) {
+        ctx.fill();
+    } else {
+        ctx.stroke();
+    }    
+};
 
+function color() {
+    return colors[Math.floor(Math.random() * colors.length)];
+};
 
+Ball.prototype.draw = function () {
+    circle(this.x, this.y, 4, true, this.z);
+};
 
+Ball.prototype.move = function () {
+    this.x += this.xSpeed;
+    this.y += this.ySpeed;
+};
+
+Ball.prototype.checkCollision = function () {
+    if (this.x < 0 || this.x > width) {
+        this.xSpeed = -this.xSpeed;
+    }
+    if (this.y < 0 || this.y > height) {
+        this.ySpeed = -this.ySpeed;
+    }
+};
+
+var ball = new Ball;
+var balls = [];
+for (i = 0; i < 10; i++) {
+    balls[i] = new Ball;
+};
+
+setInterval(function () {
+    ctx.clearRect(0, 0, width, height);
+    for (j = 0; j < 10; j++) {
+        balls[j].draw();
+        balls[j].move();
+        balls[j].checkCollision();
+    }
+    //это один мячик
+    // ball.draw();
+    // ball.move();
+    // ball.checkCollision();
+}, 25);
 
 
 
