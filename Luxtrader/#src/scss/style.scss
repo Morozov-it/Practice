@@ -18,7 +18,7 @@ $fontfamily: 'PT Sans', sans-serif;
 //<ПЕРЕМЕННЫЕ>==========================================================================================
 $minwidth: 320px;
 $maxWidth: 1920;
-$mw: 1100;
+$mw: 950;
 $md1: $mw + 12;
 $md2: 991.98;
 $md3: 767.98;
@@ -43,11 +43,22 @@ body {
 }
 //</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>=========================================================================
 
-//<ОБОЛОЧКА>============================================================================================
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>=================================================
+@import "ui.scss";
+@import "forms.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>========================================================
+@import "header.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=======================================================
+
+//<OБОЛОЧКА> ============================================================================================
 .wrapper {
 	width: 100%;
 	min-height: 100%;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 }
 //</ОБОЛОЧКА>===========================================================================================
 
@@ -56,18 +67,117 @@ body {
 	max-width: $mw + px;
 	margin: 0 auto;
 	width: 100%;
-	@media (max-width: $md1+px) {
-		max-width: 970px;
-	}
-	@media (max-width: $md2+px) {
-		max-width: 750px;
-	}
-	@media (max-width: $md3+px) {
-		max-width: none;
-		padding: 0 10px;
-	}
+	padding: 0 10px;
+}
+.page {
+	flex: 1 1 auto;
 }
 //=======================================================================================================
+.main-slider {
+	position: relative;
+	@media (max-width: $md3+px) {
+		.swiper-wrapper{
+			align-items: flex-start;
+		}
+	}
+	&__body {}
+	&__item {}
+	&__control {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 100px;
+		height: 100px;
+		transform: translate(-50%, 50%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&::after{
+			content: '';
+			background-color: #fff;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 70%;
+			height: 70%;
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+}
+.item-main-slider {
+	position: relative;
+	text-align: center;
+	@include adaptiv-padding(30,20, 0,0, 100,40, 0,0);
+	&__container {}
+	&__content {
+		position: relative;
+		z-index: 2;
+	}
+	&__bg {
+		@extend %absolute;
+	}
+}
+
+.title {
+	&__item {
+		font-family: 'Ceremonious';
+		font-size: 40px;
+		line-height: 25px;
+		color: #bb9c66;
+		margin: 0px 0px 20px/40px * 1em 0px;
+	}
+	&__main {
+		font-family: 'PFDin';
+		font-size: 35px;
+		line-height: 35px;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		&-w{
+			color: #fff;
+		}
+	}
+	&__text {
+		font-size: 15px;
+		line-height: calc(25 / 15);
+		max-width: 700px;
+		margin: 20px auto 0px auto;
+		&-w{
+			color: #fff;
+		}
+	}
+	&__btn {
+		@include adaptiv-margin(55,20, 0,0, 30,20, 0,0);
+	}
+}
+
+.control-main-slider {
+	&__arrow {
+		position: relative;
+		z-index: 2;
+		background: url('../img/icons/arrow.png') 0 0 no-repeat;
+		width: 14px;
+		height: 24px;
+		cursor: pointer;
+		&-prev{
+			
+		}
+		&-next{
+			transform: rotate(-180deg);
+		}
+	}
+	&__decor {
+		position: relative;
+		z-index: 2;
+		margin: 0 11px;
+		animation: rotate 5s infinite linear;
+	}
+}
+@keyframes rotate {
+	0% {}
+	100% {
+		transform: rotate(360deg);
+	}
+}
 
 //=======================================================================================================
 
@@ -78,13 +188,9 @@ body {
 
 //</ОСНОВНАЯ СЕТКА>======================================================================================
 
-//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>=================================================
-@import "ui.scss";
-@import "forms.scss";
-//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>================================================
+
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>========================================================
-@import "header.scss";
 @import "footer.scss";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=======================================================
 

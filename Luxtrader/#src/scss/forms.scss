@@ -9,9 +9,67 @@
 //<BUTTONS (a.btn+tab)>====================================================================================================
 .btn{
 	display: inline-block;
-	padding: 0px 0px;
-	&:hover{}
-	&.fw{width: 100%;}
+	position: relative;
+	&::before, &::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		height: 3px;
+		width: 100%;
+	}
+	&::before {
+		top: 0;
+		background-color: #cfb688;
+	}
+	&::after {
+		bottom: 0;
+		background-color: #906731;
+	}
+	
+	&__body {
+		display: block;
+		line-height: 50px;
+		position: relative;
+		&::before, 
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 3px;
+			background-image: linear-gradient(to top, #906731, #cfb688);
+		}
+		&::before{left: 0;}
+		&::after{right: 0;}
+		span {
+			color: #fff;
+			font-size: 15px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			padding: 0px 50px;
+			position: relative;
+			&::after{
+				content: '';
+				height: 50px;
+				transition: all 0.5s ease 0s;
+				position: absolute;
+				width: 100%;
+				top: -15px;
+				left: 0;
+				opacity: 0.06;
+				background-image: linear-gradient(0.0deg, rgba(0,0,0,0.95) 0%, rgba(158,158,158,0.95) 50%, rgba(208,208,208,0.95) 100%);
+			}
+		}
+	}
+	@media (min-width: 992px) {
+		&:hover{
+		.btn__body span {
+			&::after{
+				opacity: 0.16;
+				}
+			}
+		}
+	}
 }
 //</BUTTONS>====================================================================================================
 

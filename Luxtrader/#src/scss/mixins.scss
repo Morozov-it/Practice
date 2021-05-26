@@ -10,7 +10,15 @@
 	-ms-transform: rotate($deg);
 	-webkit-transform: rotate($deg);
 	-o-transform: rotate($deg);
-	transform: rotate($deg);}
+	transform: rotate($deg);
+}
+@mixin scale($num) {
+	-moz-transform: scale($num);
+	-ms-transform: scale($num);
+	-webkit-transform: scale($num);
+	-o-transform: scale($num);
+	transform: scale($num);
+}
 
 @mixin flexcnt {
 	align-items: center;
