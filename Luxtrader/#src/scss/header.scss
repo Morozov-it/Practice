@@ -25,6 +25,7 @@
 	&__menu {
 		flex: 1 1 auto;
 		padding-left: 30/950 * 100%;
+		color: #fff;
 	}
 	&__actions {}
 }
@@ -80,7 +81,6 @@
 		font-family: "PFDin";
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
-		color: #ffffff;
 		@media (min-width: 992px) {
 			&:hover{
 			text-decoration: underline;
@@ -94,6 +94,7 @@
 .actions-header {
 	display: flex;
 	align-items: center;
+	color: #fff;
 	&__region {
 		position: relative;
 		z-index: 3;
@@ -153,7 +154,6 @@
 	}
 	&__link {
 		line-height: 25px;
-		color: #ffffff;
 		padding-left: 30px;
 		@media (min-width: 992px) {
 			&:hover{

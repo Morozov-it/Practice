@@ -30,6 +30,7 @@
 		display: block;
 		line-height: 50px;
 		position: relative;
+		text-align: center;
 		&::before, 
 		&::after {
 			content: '';
@@ -42,6 +43,7 @@
 		&::before{left: 0;}
 		&::after{right: 0;}
 		span {
+			display: block;
 			color: #fff;
 			font-size: 15px;
 			text-transform: uppercase;
@@ -54,11 +56,20 @@
 				transition: all 0.5s ease 0s;
 				position: absolute;
 				width: 100%;
-				top: -15px;
+				top: 0px;
 				left: 0;
 				opacity: 0.06;
 				background-image: linear-gradient(0.0deg, rgba(0,0,0,0.95) 0%, rgba(158,158,158,0.95) 50%, rgba(208,208,208,0.95) 100%);
 			}
+		}
+	}
+	&-big{
+		.btn__body span {
+		color: #000;
+		font-size: 20px;
+		letter-spacing: 0px;
+		font-weight: 500;
+		padding: 0px;
 		}
 	}
 	@media (min-width: 992px) {

@@ -75,11 +75,11 @@ body {
 //=======================================================================================================
 .main-slider {
 	position: relative;
-	@media (max-width: $md3+px) {
-		.swiper-wrapper{
-			align-items: flex-start;
-		}
-	}
+	// @media (max-width: $md3+px) {
+	// 	.swiper-wrapper{
+	// 		align-items: flex-start;
+	// 	}
+	// }
 	&__body {}
 	&__item {}
 	&__control {
@@ -108,10 +108,13 @@ body {
 	position: relative;
 	text-align: center;
 	@include adaptiv-padding(30,20, 0,0, 100,40, 0,0);
-	&__container {}
+	&__container {
+		height: 100%;
+	}
 	&__content {
 		position: relative;
 		z-index: 2;
+		height: 100%;
 	}
 	&__bg {
 		@extend %absolute;
@@ -119,6 +122,11 @@ body {
 }
 
 .title {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
 	&__item {
 		font-family: 'Ceremonious';
 		font-size: 40px;
@@ -144,6 +152,7 @@ body {
 		&-w{
 			color: #fff;
 		}
+		flex: 1 1 auto;
 	}
 	&__btn {
 		@include adaptiv-margin(55,20, 0,0, 30,20, 0,0);
@@ -178,10 +187,309 @@ body {
 		transform: rotate(360deg);
 	}
 }
-
 //=======================================================================================================
 
+.lots {
+	@include adaptiv-padding(85,45, 0,0, 65,35, 0,0);
+	&__container {}
+	&__header {}
+	&__slider {}
+}
+.block-header {
+	&__title {
+		margin-bottom: 20px;
+	}
+	&__decor {}
+}
+.block-decor {
+	display: flex;
+	align-items: center;
+	&__items {
+		flex: 1 1 auto;
+		display: flex;
+		align-items: center;
+		&::before{
+			content: '';
+			height: 1px;
+			width: 100%;
+			flex: 1 1 auto;
+			background-color: #bb9c66;
+			margin: 0px 5px;
+		}
+		&::after{
+			content: '';
+			flex: 0 0 25*0.7px;
+			height: 25*0.7px;
+			border: 1px solid #bb9c66;
+			transform: rotate(-45deg);
+			margin: 0px 5px;
+		}
+		span {
+			display: flex;
+			align-items: center;
+			&::before{
+				content: '';
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				border: 1px solid #bb9c66;
+			}
+			&::after{
+				content: '';
+				width: 15*0.72px;
+				height: 15*0.72px;
+				border: 1px solid #bb9c66;
+				transform: rotate(-45deg);
+				margin: 0px 5px;
+			}
+		}
+		&:last-child{
+			flex-direction: row-reverse;
+			span {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+	&__icon {
+		text-align: center;
+		flex: 0 0 145px;
+		img{
+			max-width: 100%;
+		}
+		@media (max-width: $md3+px) {
+			flex: 0 0 95px;
+		}
+	}
+}
+
+.slider-lots {
+	&__body {
+		margin: 40px -50px 30px -50px;
+		.swiper-wrapper{
+			align-items: stretch;
+		}
+	}
+	&__slide {
+		padding: 0px 50px 20px 50px;
+	}
+	&__control {}
+	@media (max-width: $md2+px) {
+		&__body{
+			margin: 40px -20px 30px -20px;
+		}
+		&__slide {
+			padding: 0px 20px 20px 20px;
+		}
+	}
+}
+.control-slider-lots {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__arrow {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		margin: 0px 15px;
+		span {
+			background: url('../img/icons/sl-arrow.svg') 0 0 no-repeat;
+			flex: 0 0 108px;
+			height: 35px;
+			@media (max-width: $md4+px) {
+				flex: 0 0 70px;
+			}
+		}
+		&::after{
+			content: '';
+			height: 11px;
+			flex: 0 0 11px;
+			border-radius: 50%;
+			border: 1px solid #bb9c66;
+			margin: 0px 5px;
+		}
+		&:last-child{
+			span{
+				transform: rotate(-180deg);
+			}
+			flex-direction: row-reverse;
+		}
+		
+	}
+	&__link {
+		background: url('../img/icons/circle.png') 0 0 no-repeat;
+		flex: 0 0 100px;
+		line-height: 100px;
+		text-align: center;
+		font-family: "PFDin";
+		font-size: 21px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+}
+
+.lot {
+	margin: 0 auto;
+	max-width: 250px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	&__header {
+		@include adaptiv-margin(0,0, 0,0, 30,10, 0,0);
+		position: relative;
+	}
+	&__image {
+		display: block;
+		padding-bottom: 98%;
+		border: 3px solid #bb9c66;
+	}
+	&__timer {}
+	&__title {
+		flex: 1 1 auto;
+		font-family: 'PFDin';
+		font-size: 21px;
+		line-height: 25px;
+		font-weight: 700;
+		text-transform: uppercase;
+		position: relative;
+		z-index: 2;
+		margin: 0px 0px 27px/21px * 1em 0px;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+	&__info {}
+	&__btn {}
+}
+.timer-lot {
+	width: 72px;
+	height: 72px;
+	transform: translate(-50%, 50%);
+	display: inline-flex;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 2px;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	div {
+		position: relative;
+		z-index: 2;
+	}
+	&::before{
+		content: '';
+		background-color: #fff;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: rotate(-45deg);
+	}
+	&__icon {
+		margin-bottom: 5px;
+	}
+	&__item {}
+}
+
+.info-lot {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 35px;
+	&__stat {
+		flex: 0 0 50px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	&__icon {
+		width: 25px;
+		height: 25px;
+		position: relative;
+		margin-bottom: 10px;
+		img{
+			position: relative;
+			top: 5px;
+			z-index: 2;
+		}
+		&::after{
+			content: '';
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			transform: rotate(-45deg);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	&__value {
+		width: 100%;
+		font-size: 14px;
+		line-height: 25px;
+		border-bottom: 1px solid #bb9c66;
+	}
+}
+.info-lot-current {
+	flex: 1 1 auto;
+	padding: 0 5px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	&__label {
+		font-size: 14px;
+		margin-bottom: 10px;
+		font-weight: 600;
+	}
+	&__value {
+		font-family: "Bravo";
+		font-size: 50px;
+		font-weight: 400;
+		white-space: nowrap;
+	}
+	&__currency {
+		font-size: 14px;
+		font-weight: 600;
+		margin-top: 10px;
+	}
+	&::after{
+		content: '';
+		width: 72px;
+		height: 72px;
+		border: 1px solid #bb9c66;
+		transform: translate(-50%, -50%) rotate(-45deg);
+		position: absolute;
+		z-index: -1;
+		top: 50%;
+		left: 50%;
+	}
+}
 //=======================================================================================================
+
+.categories {
+	&__container {}
+	&__row {}
+	&__column {}
+	&__item {}
+}
+.item {
+	height: 250px;
+	width: 250px;
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 30px 10px 40px 10px;
+	&__bg {
+		@extend %absolute;
+		z-index: -1;
+	}
+	&__icon {}
+	&__title {}
+}
 
 //=======================================================================================================
 
